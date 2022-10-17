@@ -1,5 +1,5 @@
 # luana.dev.br
-hello, website coming soon
+hello, website coming soon!
 
 luana@luana.dev.br
 
