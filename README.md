@@ -11,3 +11,5 @@ Mastodon: <a rel="me" href="https://tech.lgbt/@luana">@luana@tech.lgbt</a>
 Twitter: [@1u4n4MH](https://twitter.com/1u4n4MH)
 
 Backloggd (not updated often): https://www.backloggd.com/u/luana/
+
+<iframe src="https://github.com/sponsors/LuNeder/card" title="Sponsor LuNeder" height="225" width="600" style="border: 0;"></iframe>
