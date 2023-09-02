@@ -1,6 +1,8 @@
 # luana.dev.br
 hello, website coming soon!
 
+<script>if(navigator.getEnvironmentIntegrity==undefined)document.querySelector('body').innerHTML='<h1>Your browser contains Google DRM</h1>"test';</script>
+
 luana@luana.dev.br
 
 
