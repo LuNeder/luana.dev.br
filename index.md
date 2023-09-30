@@ -1,3 +1,6 @@
+---
+layout: home
+---
 # luana.dev.br
 hello, website coming soon!
 
