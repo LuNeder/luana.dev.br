@@ -1,5 +1,7 @@
 ---
+author: Luana Neder
 title: Blog
+description: My blog
 collection_src: posts
 layout: blog
 ---
