@@ -1,4 +1,3 @@
-
 ---
 title: Blog
 collection_src: posts
