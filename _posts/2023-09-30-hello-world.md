@@ -1,6 +1,6 @@
 ---
 title: Hello, world!
-date: 2023-09-30
+pdate: 2023-09-30
 author: Luana Neder
 layout: post
 ---
