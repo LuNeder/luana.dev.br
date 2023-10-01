@@ -1,5 +1,5 @@
 ---
-title: Uutils Rules: Yeeting GNU Coreutils from my System
+title: "Uutils Rules: Yeeting GNU Coreutils from my System"
 pdate: 2023-10-01
 author: Luana Neder
 layout: post
