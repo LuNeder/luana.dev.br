@@ -39,9 +39,99 @@ Copy uutils to your bin folder
 sudo cp ./target/release/coreutils /usr/bin
 ````
 
-Before we remove the GNU coreutils it's important that we create a snapshot
+Before we remove the GNU coreutils it's important that we create a snapshot we can go back to if something goes wrong. Luckly, openSUSE Tumbleweed comes with snapper preconfigured so all we have to do is:
+
+````sh
+sudo snapper create --description 'before-uutils' --userdata important=yes -t pre
+````
+
+Now run ```sudo snapper list``` and write down the number of the snapshot you just created. The output should be something like this:
+````
+177  | pre    |       | sáb 30 set 2023 13:53:48 | root    |   656,00 KiB |         | before-uutils         | important=yes
+````
+
+So my number here is 177. Now I've deciced to link our uutils before uninstalling gnu coreutils just so we don't use gnu coreutils to uninstall itself. The difference here is that we'll have to do this opnce again after uninstalling it since rpm will delete our links too thinking they're part of GNU.
+
+In order to do this, I made a ```uutils-installer.sh``` script that does this automatically (this and all scripts on this post are available for download [on a GitHub repo](https://github.com/LuNeder/uutils-coreutils-replacer) so you don't have to make them yourself):
+
+````sh
+commandsuu="[ arch b2sum b3sum base32 base64 basename basenc cat chgrp chmod chown chroot cksum comm cp csplit cut date dd df dir dircolors dirname du echo env expand expr factor false fmt fold groups hashsum head hostid hostname id install join kill link ln logname ls md5sum mkdir mkfifo mknod mktemp more mv nice nl nohup nproc numfmt od paste pathchk pinky pr printenv printf ptx pwd readlink realpath relpath rm rmdir seq sha1sum sha224sum sha256sum sha3-224sum sha3-256sum sha3-384sum sha3-512sum sha384sum sha3sum sha512sum shake128sum shake256sum shred shuf sleep sort split stat stdbuf stty sum sync tac tail tee test timeout touch tr true truncate tsort tty uname unexpand uniq unlink uptime users vdir wc who whoami yes"
+
+for i in $commandsuu; do
+    coreutils rm -f /usr/bin/$i
+    coreutils ln -s /usr/bin/coreutils /usr/bin/$i
+done
+
+echo done
+````
+
+I've run it with ```sudo sh ../uutils-coreutils-replacer/uutils-installer.sh``` and now we can finally yeet GNU Coreutils from your system with:
+
+````sh
+sudo rpm -e --allmatches --nodeps coreutils
+````
+
+Rpm might spit some command not found errors here, but you can ignore those since it just means it worked. Right now our system does not have any coreutils linked on the expected places, so it's super important that we run our  ```uutils-installer.sh``` script once again:
+
+````sh
+sudo sh ../uutils-coreutils-replacer/uutils-installer.sh
+````
+
+Right now you can reboot your system to make sure it's using our currently installed uutils and not trying to use what we just removed.
+
+Now, our package manager (in my case zypper) will know that we have uninstalled gnu coreutils but won't know that we installed something to substitute it. It will try to reinstall coreutils every time you try to update or install something, so we need to install an empty metapackage with a big version number to stop zypper from doing this (just addlocking isn't enough right now because it'll still complain about missing dependencies). How to create that package yourself is beyond the scope of this post, but [the .rpm I made is available to download on the aforementioned GitHub repo](https://github.com/LuNeder/uutils-coreutils-replacer) together with the needed files to generate it yourself if so you wish. Install it with:
+
+````sh
+sudo zypper in ./coreutils-9999.99.99-0.noarch.rpm
+````
+
+Now we can addlock coreutils so zypper doesn't try to "update" our metapackage:
+````sh
+sudo zypper addlock coreutils
+sudo zypper addlock coreutils-single
+````
+
+At this point we just need to compile the shell completions and manpages for uutils. I also made scripts for this, whick can be downloaded from the [GitHub repo for this post](https://github.com/LuNeder/uutils-coreutils-replacer):
+
+```zsh-completions.sh```:
+````sh
+commandsuu="coreutils base32 base64 basename basenc cat cksum comm cp csplit cut date dd df dir dircolors dirname du echo env expand expr factor false fmt fold hashsum md5sum sha1sum sha224sum sha256sum sha384sum sha512sum sha3sum sha3-224sum sha3-256sum sha3-384sum sha3-512sum shake128sum shake256sum b2sum b3sum head join link ln ls mkdir mktemp more mv nl numfmt od paste pr printenv printf ptx pwd readlink realpath relpath rm rmdir seq shred shuf sleep sort split sum tac tail tee touch tr true truncate tsort unexpand uniq unlink test vdir wc yes"
+
+for i in $commandsuu; do
+    cargo run completion $i bash > /usr/share/bash-completion/completions/$i
+    cargo run completion $i zsh > /usr/share/zsh/site-functions/_$i
+done
+```` 
 
 
+```manpage.sh ```:
+````sh
+commandsuu="coreutils base32 base64 basename basenc cat cksum comm cp csplit cut date dd df dir dircolors dirname du echo env expand expr factor false fmt fold hashsum md5sum sha1sum sha224sum sha256sum sha384sum sha512sum sha3sum sha3-224sum sha3-256sum sha3-384sum sha3-512sum shake128sum shake256sum b2sum b3sum head join link ln ls mkdir mktemp more mv nl numfmt od paste pr printenv printf ptx pwd readlink realpath relpath rm rmdir seq shred shuf sleep sort split sum tac tail tee touch tr true truncate tsort unexpand uniq unlink test [ vdir wc yes"
+
+for i in $commandsuu; do
+    cargo run manpage $i > /usr/local/man/man1/$i.1
+done
+```` 
+
+These scripts need to be run as root, but they use cargo. Make sure to ```su root``` and then [install Rust](https://www.rust-lang.org/learn/get-started) again on your root account and ```source "$HOME/.cargo/env"```. From there, you can run both scripts and you should be done:
+
+````sh
+../uutils-coreutils-replacer/zsh-completions.sh
+````
+
+````sh
+../uutils-coreutils-replacer/manpage.sh
+````
+
+Now, make another snapper snapshot (substitute "[NUMBER]" with the snapshot number you wrote down earlier, in my case 177) :
+
+````sh
+sudo snapper create --description 'after-uutils' --userdata important=yes -t post --pre-number [NUMBER]
+````
+
+And you're done! Now you can proudly state that your system is not GNU whenever a GNU fanclubber comes in with their "GNU/Linux" copypasta.<span style="font-style:italic;font-size:10px">
+    (well, technically there's still glibc but shhh that's a talk for another day)
+</span>
 
 # Updating
 Since we did not install it from a package manager, we'll have to manually update uutils from time to time.
