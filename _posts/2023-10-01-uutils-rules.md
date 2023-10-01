@@ -17,3 +17,5 @@ Maybe you're a Rust fanatic that just want to use anything that is coded on it, 
 I have therefore been trying to heavily reduce my use of GNU and, when possible, GPL software.
 
 # Replacing the Core: How?
+
+Ready? First we need to clone [uutil's GitHub repository](https://github.com/uutils/coreutils/), making sure all tests on GitHub are passing. You may want to get the source from the [latest release](https://github.com/uutils/coreutils/releases/latest) instead in case the tests are not passing or if you want a safer alternative to the latest commits
