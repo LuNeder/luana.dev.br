@@ -66,7 +66,11 @@ done
 echo done
 ````
 
-I've run it with ```sudo sh ../uutils-coreutils-replacer/uutils-installer.sh``` and now we can finally yeet GNU Coreutils from your system with:
+I've run it with 
+````sh
+sudo sh ../uutils-coreutils-replacer/uutils-installer.sh
+````
+and now we can finally yeet GNU Coreutils from your system with:
 
 ````sh
 sudo rpm -e --allmatches --nodeps coreutils
