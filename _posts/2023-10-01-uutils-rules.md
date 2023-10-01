@@ -5,7 +5,7 @@ author: Luana Neder
 layout: post
 ---
 
-I've spent my Saturday completely replacing the coreutils on my openSUSE Tumbleweed system. After just a few hours, I can say that I've successfully replaced GNU coreutils with [uutils](https://uutils.github.io/) and everything went surprisingly smoothly!
+I've spent my Saturday completely replacing the coreutils on my openSUSE Tumbleweed Linux system. After just a few hours, I can say that I've successfully replaced GNU coreutils with [uutils](https://uutils.github.io/) and everything went surprisingly smoothly!
 
 Everything just worked after I installed uutils and deleted coreutils, and I mean it: NVidia drivers, audio, bluetooth, compiz, Steam and all programs I use worked out of the boxMost of this comes from uutils goal: full parity with the GNU coreutils.
 
@@ -20,7 +20,7 @@ I have therefore been trying to heavily reduce my use of GNU and, when possible,
 
 Ready? Buckle up!
 
-Note that this section is not intended to be blindly copy and pasted (never copy and paste random commands from the internet), since different distros will expect coreutils to be in different bin folders, shell completions and manpages to be installed on different places and have different package managers with different ways to do the stuff we'll have to do. It should be easy to adapt this to your own distrfo, but make sure to try it out on a virtual machine first to make sure it won't break anything on your distro.
+Note that this section is not intended to be blindly copy and pasted (never copy and paste random commands from the internet), since different distros will expect coreutils to be in different bin folders, shell completions and manpages to be installed on different places and have different package managers with different ways to do the stuff we'll have to do. It should be easy to adapt this to your own distro, but make sure to try it out on a virtual machine first to make sure it won't break anything you use. Remember that this has the potential to break your system and that you may follow these steps at your own risk!
 
 First we need to clone [uutil's GitHub repository](https://github.com/uutils/coreutils/), making sure all tests on GitHub are passing. You may want to get the source from the [latest release](https://github.com/uutils/coreutils/releases/latest) instead in case the tests are not passing or if you want a safer alternative to the latest commits.
 
@@ -154,3 +154,5 @@ sudo ./target/release/coreutils cp -f ./target/release/coreutils /usr/bin
 
 Now you can reboot your system and make a new snapper snapshot, your system will be using the updated uutils.
 
+# Conclusion
+That's all for today, folks. I hope you liked our little weekend adventure, feel free to share your comments on Mastodon if you'd like!
