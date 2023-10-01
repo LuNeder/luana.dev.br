@@ -18,4 +18,44 @@ I have therefore been trying to heavily reduce my use of GNU and, when possible,
 
 # Replacing the Core: How?
 
-Ready? First we need to clone [uutil's GitHub repository](https://github.com/uutils/coreutils/), making sure all tests on GitHub are passing. You may want to get the source from the [latest release](https://github.com/uutils/coreutils/releases/latest) instead in case the tests are not passing or if you want a safer alternative to the latest commits
+Ready? Buckle up!
+
+Note that this section is not intended to be blindly copy and pasted (never copy and paste random commands from the internet), since different distros will expect coreutils to be in different bin folders, shell completions and manpages to be installed on different places and have different package managers with different ways to do the stuff we'll have to do. It should be easy to adapt this to your own distrfo, but make sure to try it out on a virtual machine first to make sure it won't break anything on your distro.
+
+First we need to clone [uutil's GitHub repository](https://github.com/uutils/coreutils/), making sure all tests on GitHub are passing. You may want to get the source from the [latest release](https://github.com/uutils/coreutils/releases/latest) instead in case the tests are not passing or if you want a safer alternative to the latest commits.
+
+````sh
+git clone https://github.com/uutils/coreutils && cd coreutils
+````
+
+Now we compile uutils with cargo. You'll need a c++ compiler in order to do this, I (unfortunetly) decided to use ```gcc-c++```  since it was the only one I knew without having to do much research. Just install it with zypper. After you've [installed Rust](https://www.rust-lang.org/learn/get-started):
+````sh
+cargo build --release --features unix
+````
+
+Copy uutils to your bin folder
+
+````sh
+sudo cp ./target/release/coreutils /usr/bin
+````
+
+Before we remove the GNU coreutils it's important that we create a snapshot
+
+
+
+# Updating
+Since we did not install it from a package manager, we'll have to manually update uutils from time to time.
+
+Make a snapshot with snapper first, then update the cloned repository (making sure all checks are passing). 
+
+Clean the releases with ```cargo clean``` and compile uutils with ```cargo build --release --features unix```, then we need to remove the current coreutils and add the new one on its place. Let's use our newly compiled binary for this:
+
+````sh
+sudo ./target/release/coreutils rm -f /usr/bin/coreutils
+````
+
+````sh
+sudo ./target/release/coreutils cp -f ./target/release/coreutils /usr/bin
+````
+
+Now you can reboot your system and make a new snapper snapshot, your system will be using the updated uutils.
