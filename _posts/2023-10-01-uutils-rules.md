@@ -96,7 +96,7 @@ sudo zypper addlock coreutils
 sudo zypper addlock coreutils-single
 ````
 
-At this point we just need to compile the shell completions and manpages for uutils. I also made scripts for this, whick can be downloaded from the [GitHub repo for this post](https://github.com/LuNeder/uutils-coreutils-replacer):
+At this point we just need to compile the shell completions and manpages for uutils. I also made scripts for this, which can be downloaded from the [GitHub repo for this post](https://github.com/LuNeder/uutils-coreutils-replacer):
 
 ```zsh-completions.sh ```:
 
