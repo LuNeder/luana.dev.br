@@ -7,7 +7,7 @@ layout: post
 
 I've spent my Saturday completely replacing the coreutils on my openSUSE Tumbleweed Linux system. After just a few hours, I can say that I've successfully replaced GNU coreutils with [uutils](https://uutils.github.io/) and everything went surprisingly smoothly!
 
-Everything just worked after I installed uutils and deleted coreutils, and I mean it: NVidia drivers, audio, bluetooth, compiz, Steam and all programs I use worked out of the boxMost of this comes from uutils goal: full parity with the GNU coreutils.
+Everything worked smoothly after I installed uutils and removed coreutils. I mean it: NVIDIA drivers, audio, Bluetooth, Compiz, Steam, and all the programs I use worked out of the box. Most of this success can be attributed to uutils' goal of achieving full parity with the GNU coreutils.
 
 This blog post aims to be both an interesting story and a tutorial of some kind for those who want to do the same, so bear with me for this weekend adventure.
  
@@ -28,7 +28,7 @@ First we need to clone [uutil's GitHub repository](https://github.com/uutils/cor
 git clone https://github.com/uutils/coreutils && cd coreutils
 ````
 
-Now we compile uutils with cargo. You'll need a c++ compiler in order to do this, I (unfortunatly) decided to use ```gcc-c++```  since it was the only one I knew without having to do much research. Just install it with zypper. After you've [installed Rust](https://www.rust-lang.org/learn/get-started):
+Now we compile uutils with cargo. You'll need a c++ compiler in order to do this, I (unfortunately) decided to use ```gcc-c++```  since it was the only one I knew without having to do much research. Just install it with zypper. After you've [installed Rust](https://www.rust-lang.org/learn/get-started):
 ````sh
 cargo build --release --features unix
 ````
@@ -50,7 +50,7 @@ Now run ```sudo snapper list``` and write down the number of the snapshot you ju
 177  | pre    |       | sáb 30 set 2023 13:53:48 | root    |   656,00 KiB |         | before-uutils         | important=yes
 ````
 
-So my number here is 177. Now I've deciced to link our uutils before uninstalling gnu coreutils just so we don't use gnu coreutils to uninstall itself. The difference here is that we'll have to do this once again after uninstalling it since rpm will delete our links too thinking they're part of GNU.
+So my number here is 177. Now I've decided to link our uutils before uninstalling gnu coreutils just so we don't use gnu coreutils to uninstall itself. The difference here is that we'll have to do this once again after uninstalling it since rpm will delete our links too thinking they're part of GNU.
 
 In order to do this, I made a ```uutils-installer.sh``` script that does this automatically (this and all scripts on this post are available for download [on a GitHub repo](https://github.com/LuNeder/uutils-coreutils-replacer) so you don't have to make them yourself):
 
