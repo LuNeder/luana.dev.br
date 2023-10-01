@@ -129,8 +129,9 @@ Now, make another snapper snapshot (substitute "[NUMBER]" with the snapshot numb
 sudo snapper create --description 'after-uutils' --userdata important=yes -t post --pre-number [NUMBER]
 ````
 
-_(Here a fun fact is that I spent a few hours trying to fix an 'invisible lightdm' problem... just for me to find out that it was actually not a problem and I just forgot I had a second monitor connected and lightdm was showing up on it 🤦‍♀️)_
+_(Here a fun fact is that I spent a few hours trying to fix an 'invisible lightdm' problem with folks on the uutils discord... just for me to find out that it was actually not a problem and I just forgot I had a second monitor connected and lightdm was showing up on it 🤦‍♀️)_
 
+Once I rebooted, I proceeded to test stuff to make sure nothing had been broken: I launched Steam and Cyberpunk 2077 to make sure NVidia drivers, audio, proton, etc was all working, and indeed it was! I also tried out bluetooth, my compiz stuff, firefox and everything else I usually use and I couldn't find a single thing that was not working! Nice!
 
 And you're done! Now you can proudly state that your system is not GNU whenever a GNU fanclubber comes in with their "GNU/Linux" copypasta.<span style="font-style:italic;font-size:10px">
     (well, technically there's still glibc but shhh that's a talk for another day)
@@ -155,4 +156,8 @@ sudo ./target/release/coreutils cp -f ./target/release/coreutils /usr/bin
 Now you can reboot your system and make a new snapper snapshot, your system will be using the updated uutils.
 
 # Conclusion
-That's all for today, folks. I hope you liked our little weekend adventure, feel free to share your comments on Mastodon if you'd like!
+That's all for today, folks. I hope you liked our little weekend adventure, feel free to share your comments on [Mastodon]() if you'd like! 
+
+
+
+Special thanks to uutils devs, folks on the uutils discord, openSUSE community, GELOS community and to openSUSE for creating the awesomest Linux distro (which hopefully can come with uutils by default some day now that we know everything works fine with it).
