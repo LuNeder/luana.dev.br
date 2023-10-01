@@ -13,7 +13,8 @@ This blog post aims to be both an interesting story and a tutorial of some kind 
  
 
 # Rage Against the GNU: Why?
-Maybe you're a Rust fanatic that just want to use anything that is coded on it, or maybe you prefer the multicall binary approach or even the infinitely more permissive license uutils use, but the fact is there are many reasons for me to want to decrease my dependence on GNU software. Getting into too much detail about this is beyond the scope of this post, but GNU and the FSF have become (or always were) a show of horrors of arrogant people and entitlement from its board, devs and fans, going as far as [attacking whoever has a different opinion about licensing](https://github.com/uutils/coreutils/issues/1781) or is making an alternative to their software, and deliberately ignoring the existence of non-GNU open source software and Linux distributions. I'm also pretty sure I remember reading somewhere that GNU was being secretive about documentation for some parts of glibc on an attempt to stop projects like [musl](https://musl.libc.org/). 
+Maybe you're a Rust fanatic that just want to use anything that is coded on it, or maybe you prefer the multicall binary approach or even the infinitely more permissive license uutils use, but the fact is there are many reasons for me to want to decrease my dependence on GNU software. Getting into too much detail about this is beyond the scope of this post, but GNU and the FSF have become (or always were) a show of horrors of arrogant people and entitlement from its board, devs and fans, going as far as [attacking whoever has a different opinion about licensing](https://github.com/uutils/coreutils/issues/1781) or is making an alternative to their software, and deliberately ignoring the existence of non-GNU open source software and Linux distributions. 
+<!-- I'm also pretty sure I remember reading somewhere that GNU was being secretive about documentation for some parts of glibc on an attempt to stop projects like [musl](https://musl.libc.org/). -->
 I have therefore been trying to heavily reduce my use of GNU and, when possible, GPL software.
 
 # Replacing the Core: How?
@@ -134,7 +135,7 @@ _(Here a fun fact is that I spent a few hours trying to fix an 'invisible lightd
 Once I rebooted, I proceeded to test stuff to make sure nothing had been broken: I launched Steam and Cyberpunk 2077 to make sure NVidia drivers, audio, proton, etc was all working, and indeed it was! I also tried out bluetooth, my compiz stuff, firefox and everything else I usually use and I couldn't find a single thing that was not working! Nice!
 
 And you're done! Now you can proudly state that your system is not GNU whenever a GNU fanclubber comes in with their "GNU/Linux" copypasta.<span style="font-style:italic;font-size:10px">
-    (well, technically there's still glibc but shhh that's a talk for another day)
+    (well, technically there's still glibc but shhh that's a talk for another day - once Steam can work under [musl](https://musl.libc.org/))
 </span>
 
 
