@@ -116,7 +116,7 @@ for i in $commandsuu; do
 done
 ```` 
 
-These scripts need to be run as root, but they use cargo. Make sure to ```su root``` and then [install Rust](https://www.rust-lang.org/learn/get-started) again on your root account and ```source "$HOME/.cargo/env"```. From there, you can run both scripts and you should be done:
+These scripts need to be run as root (due to where completions and manpages are saved), but they use cargo. Make sure to ```su root``` and then [install Rust](https://www.rust-lang.org/learn/get-started) again on your root account and ```source "$HOME/.cargo/env"```. From there, you can run both scripts and you should be done:
 
 ````sh
 ../uutils-coreutils-replacer/zsh-completions.sh
