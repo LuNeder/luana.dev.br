@@ -28,7 +28,7 @@ First we need to clone [uutil's GitHub repository](https://github.com/uutils/cor
 git clone https://github.com/uutils/coreutils && cd coreutils
 ````
 
-Now we compile uutils with cargo. You'll need a c++ compiler in order to do this, I (unfortunetly) decided to use ```gcc-c++```  since it was the only one I knew without having to do much research. Just install it with zypper. After you've [installed Rust](https://www.rust-lang.org/learn/get-started):
+Now we compile uutils with cargo. You'll need a c++ compiler in order to do this, I (unfortunatly) decided to use ```gcc-c++```  since it was the only one I knew without having to do much research. Just install it with zypper. After you've [installed Rust](https://www.rust-lang.org/learn/get-started):
 ````sh
 cargo build --release --features unix
 ````
@@ -50,7 +50,7 @@ Now run ```sudo snapper list``` and write down the number of the snapshot you ju
 177  | pre    |       | sáb 30 set 2023 13:53:48 | root    |   656,00 KiB |         | before-uutils         | important=yes
 ````
 
-So my number here is 177. Now I've deciced to link our uutils before uninstalling gnu coreutils just so we don't use gnu coreutils to uninstall itself. The difference here is that we'll have to do this opnce again after uninstalling it since rpm will delete our links too thinking they're part of GNU.
+So my number here is 177. Now I've deciced to link our uutils before uninstalling gnu coreutils just so we don't use gnu coreutils to uninstall itself. The difference here is that we'll have to do this once again after uninstalling it since rpm will delete our links too thinking they're part of GNU.
 
 In order to do this, I made a ```uutils-installer.sh``` script that does this automatically (this and all scripts on this post are available for download [on a GitHub repo](https://github.com/LuNeder/uutils-coreutils-replacer) so you don't have to make them yourself):
 
@@ -129,9 +129,13 @@ Now, make another snapper snapshot (substitute "[NUMBER]" with the snapshot numb
 sudo snapper create --description 'after-uutils' --userdata important=yes -t post --pre-number [NUMBER]
 ````
 
+_(Here a fun fact is that I spent a few hours trying to fix an 'invisible lightdm' problem... just for me to find out that it was actually not a problem and I just forgot I had a second monitor connected and lightdm was showing up on it 🤦‍♀️)_
+
+
 And you're done! Now you can proudly state that your system is not GNU whenever a GNU fanclubber comes in with their "GNU/Linux" copypasta.<span style="font-style:italic;font-size:10px">
     (well, technically there's still glibc but shhh that's a talk for another day)
 </span>
+
 
 # Updating
 Since we did not install it from a package manager, we'll have to manually update uutils from time to time.
@@ -149,3 +153,4 @@ sudo ./target/release/coreutils cp -f ./target/release/coreutils /usr/bin
 ````
 
 Now you can reboot your system and make a new snapper snapshot, your system will be using the updated uutils.
+
