@@ -158,7 +158,7 @@ sudo ./target/release/coreutils cp -f ./target/release/coreutils /usr/bin
 Now you can reboot your system and make a new snapper snapshot, your system will be using the updated uutils.
 
 # Conclusion
-That's all for today, folks. I hope you liked our little weekend adventure, feel free to share your comments on [Mastodon]() if you'd like! 
+That's all for today, folks. I hope you liked our little weekend adventure, feel free to share your comments on [Mastodon](https://tech.lgbt/@luana/111161558275487072) if you'd like! 
 
 
 
