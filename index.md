@@ -13,7 +13,7 @@ I like Linux, specially non-GNU Linux, the Fediverse, and ✨open source✨ stuf
 
 I also love mermaids, swimming, gaming (on Linux) and cooking.
 
-I (try to) program in Rust, Python and FORTRAN, and my computers are configured using Nix.
+I (try to) program in Godot (gdscript), Rust, Python and FORTRAN, and my computers are configured using Nix.
 
 My current Linux distro is NixOS.
 
