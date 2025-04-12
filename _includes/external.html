@@ -1,0 +1,5 @@
+<nav class="external">
+  {% for item in site.data.external %}
+    <a href="{{ item.url }}" target="_blank" rel="noopener {{ item.rel }}" class="btn">{{ item.name }}</a>
+  {% endfor %}
+</nav>

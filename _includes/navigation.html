@@ -1,0 +1,5 @@
+<nav class="navigation">
+  {% for item in site.data.navigation %}
+    <a {% if page.url == item.url or page.parent == item.url %} aria-current="page" {% endif %} href="{{ item.url | relative_url }}" class="btn">{{ item.name }}</a>
+  {% endfor %}
+</nav>

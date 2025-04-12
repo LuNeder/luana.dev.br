@@ -19,19 +19,12 @@
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       
-      <a href="https://luana.dev.br" class="btn">Home</a>
-      <a href="https://luana.dev.br/blog" class="btn">Blog</a>
+      {% include navigation.html %}
       
       <br>
 
       
-      <a href="https://github.com/LuNeder" class="btn">GitHub</a>
-      <a rel="me" href="https://wetdry.world/@luana" class="btn">Mastodon: @luana@wetdry.world</a>
-      <a href="https://steamcommunity.com/id/luanamnp/" class="btn">Steam</a>
-      <a href="https://matrix.to/#/@luana:catgirl.cloud" class="btn">Matrix: @luana:catgirl.cloud</a>
-      <a href="https://discordapp.com/users/187652444589785088" class="btn">Discord: @luananeder</a>
-      <a href="https://www.backloggd.com/u/luana/" class="btn">Backloggd</a>
-      <a href="mailto:luana@luana.dev.br" class="btn">E-mail: luana@luana.dev.br</a>
+      {% include external.html %}
       <iframe src="https://github.com/sponsors/LuNeder/button" title="Sponsor LuNeder" height="32" width="114" style="border: 0; border-radius: 7px;"></iframe>
       
     </header>

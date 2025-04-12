@@ -19,9 +19,8 @@
       <h1 class="project-name">{{ page.author }}: {{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       
-      <a href="https://luana.dev.br" class="btn">Home</a>
-      <a href="https://luana.dev.br/blog" class="btn">Blog</a>
-      
+      {% include navigation.html %}
+    
     </header>
 
     <main id="content" class="main-content" role="main">
