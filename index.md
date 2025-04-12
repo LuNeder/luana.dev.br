@@ -7,7 +7,7 @@ description: Brazilian computational physics college student
 Hiiii!
 
 I'm Luana, a computational physics student from Brazil.  
-I'm lesbian, a (future) furry and a mermaid 🧜‍♀️.
+I'm lesbian,  a furry and an otherkin  mermaid 🧜‍♀️.
 
 I like Linux, specially non-GNU Linux, the Fediverse, and ✨open source✨ stuff!
 
