@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
 
-{% seo %}
+    {% seo %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,19 +15,7 @@
   <body>
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
-    <header class="page-header" role="banner">
-      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-      
-      {% include navigation.html %}
-      
-      <br>
-
-      
-      {% include external.html %}
-      <iframe src="https://github.com/sponsors/LuNeder/button" title="Sponsor LuNeder" height="32" width="114" style="border: 0; border-radius: 7px;"></iframe>
-      
-    </header>
+    {% include header.html external=true %}
 
     <main id="content" class="main-content" role="main">
       <script>if(navigator.getEnvironmentIntegrity!==undefined)document.querySelector('body').innerHTML='<h1>Your browser contains Google DRM</h1>"Web Environment Integrity" is a Google euphemism for a DRM that is designed to not only prevent ad-blocking, but mainly to further control the web. In support of an open web, this website does not function with this DRM. Please install a browser such as <a href="mozilla.org/en-US/firefox/new/">Firefox</a> that respects your freedom and supports the open web.';</script>
