@@ -7,7 +7,7 @@ layout: post
 
 I've 3D modeled the weird shape my [physics 2 teacher](https://krissia-zawadzki.owlstown.net/) made on her class.
 
-The project files are available on [my GitHub](https://github.com/LuNeder/KrissiaShape).
+The project files (the OpenSCAD 'code') are available on [my GitHub](https://github.com/LuNeder/KrissiaShape).
 
 ![Rendered preview of the shape in OpenSCAD, it's a pyramid with a trapezoid-like shape glued to its right](/assets/KrissiaShape/shape.png)
 
@@ -58,7 +58,9 @@ After around 4 and a half hours, here's our final result!
 
 <TODO: ADD PICS WHEN READY, IN ABOUT 4 HOURS> 
 
-You can download the stl [here](TODO).
+You can download the stl [here](https://github.com/LuNeder/KrissiaShape/releases/latest).
+
+Welp, it's Expedition 33 time now!
 
 Thanks for reading, and let's hope no shapes as weird as this one show up on the tests!
 
