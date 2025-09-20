@@ -25,7 +25,7 @@ In order to model this in 3D and then 3D print it, first I had to calculate the 
 
 However, it's been a while since I've last messed with trigonometry so it didn't really work out. Therefore, I asked for help at the [GELOS](https://gelos.club) off-topic channel, because I know some of my friends there are good in math stuff.
 
-So Miguel calculated that length as `(12/5)\*d` (line `4`):
+So Miguel calculated that length as `(12/5)*d` (line `4`):
 
 ![Thales theorem calculation of the aforementioned size](/assets/KrissiaShape/miguel.jpg)
 
@@ -37,7 +37,7 @@ So now it was up to me to model the shape!
 
 I chose `d = 100/4 mm`, because I wanted the final shape to have a length (`4d`) of 10 cm (for the unitedstadians reading this, this appears to be around the size of two golf tees laid end‑to‑end). While building the shape, however, I was very careful to avoid hardcoding any values. This means you can simply change the `d` constant value (line `3`) and everything will scale correctly!
 
-When I was almost done, I noticed the inclination of the right end of the trapezoid could be arbitrarily chosen so I chose 55 degrees bc it looked good (line 20). So, on the below image, `θ = 55deg` and `t = d \* tan(90-θ) = 0.7\*d`.
+When I was almost done, I noticed the inclination of the right end of the trapezoid could be arbitrarily chosen so I chose 55 degrees bc it looked good (line 20). So, on the below image, `θ = 55deg` and `t = d * tan(90-θ) = 0.7*d`.
 
 ![Image of the shape in my tablet again, now shoing an angle theta for the right wall of the shape](/assets/KrissiaShape/theta.jpg)
 
