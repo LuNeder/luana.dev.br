@@ -29,7 +29,7 @@ So Miguel calculated that length as `(12/5)*d` (line `4`):
 
 ![Thales theorem calculation of the aforementioned size](/assets/KrissiaShape/miguel.jpg)
 
-For the coordinates of the top vertices of the trapezoid, since the pyramid gets thinner at the top, I once again asked for help and Rádio from GELOS calculated it (line `17`):
+For the coordinates of the top vertices of the trapezoid, since the pyramid gets thinner at the top (because, well, it's a pyramid), I once again asked for help and Rádio from GELOS calculated it (line `17`):
 
 ![Calculating the relative positions of the vertices of the trapezoid at height d related to the pyramid](/assets/KrissiaShape/radio.jpg)
 
