@@ -54,9 +54,13 @@ Exporting and loading the STL on Cura, we can see it's indeed on our expected si
 ![Screenshot of Cura with the sliced shape, measuring exactly 100mm in length, 75mm in height and 60mm of depth](/assets/KrissiaShape/cura.png)
 
 
-After around 4 and a half hours, here's our final result!
+After some hours, here's our final result!
 
-<TODO: ADD PICS WHEN READY, IN ABOUT 4 HOURS> 
+![Photo of the ready shape, 3D printed in fluorescent blue PLA, still attached to the 3D printer](/assets/KrissiaShape/final1.jpg)
+
+![Photo of the ready shape, 3D printed in fluorescent blue PLA](/assets/KrissiaShape/final2.jpg)
+
+(as you can see, yes I had some adhesion problems and added a Cura raft to get better contact surface)
 
 You can download the stl [here](https://github.com/LuNeder/KrissiaShape/releases/latest).
 
