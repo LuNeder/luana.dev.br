@@ -5,10 +5,8 @@
   rel: me
 - name: Steam
   url: https://steamcommunity.com/id/luanamnp/
-- name: "Matrix: @luana:catgirl.cloud"
-  url: https://matrix.to/#/@luana:catgirl.cloud
-- name: "Discord: @luananeder"
-  url: https://discordapp.com/users/187652444589785088
+- name: "XMPP: @luana@queer-spark.org"
+  url: "xmpp:@luana@queer-spark.org"
 - name: Backloggd
   url: https://www.backloggd.com/u/luana/
 - name: "E-mail: luana@luana.dev.br"
